@@ -90,7 +90,6 @@ export const PersonsTable = () => {
 
   return (
     <div>
-      <h1 className='text-white text-center mb-4'>Fake Person Data</h1>
       <hr />
       <Filter handleChange={filterPersons} />
       <hr />
