@@ -41,9 +41,9 @@ export const Paginate = ({
         Previous
       </button>
       {pagesArr.map((page, i) => (
-        <a
+        <button
           key={i}
-          href='#'
+          type='button'
           className={`btn mx-1 ${
             currentPage === i + 1 ? "btn-primary" : "btn-light"
           }`}
@@ -52,7 +52,7 @@ export const Paginate = ({
         >
           {" "}
           {i + 1}{" "}
-        </a>
+        </button>
       ))}
       <button
         className='btn btn-success mx-3'

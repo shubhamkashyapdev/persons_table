@@ -10,6 +10,7 @@ import Filter from "./Filter/Filter";
 export const PersonsTable = () => {
   useEffect(() => {
     setPersons(Data);
+    // eslint-disable-next-line
   }, []);
 
   const [persons, setPersons] = useState([]);
@@ -27,7 +28,7 @@ export const PersonsTable = () => {
     const newPersons = persons.slice(startIndex, endIndex);
     return newPersons;
   };
-
+  console.log(paginate());
   const paginatedPersons = paginate()
     .sort((a, b) => {
       if (sort.sortBy === "id") {
@@ -63,6 +64,16 @@ export const PersonsTable = () => {
     });
   };
 
+  const getIcon = (column) => (
+    <i
+      className={`fas ${
+        sort.sortBy === column && sort.sortOrder === "dsc"
+          ? "fa-sort-down"
+          : "fa-sort-up"
+      }  icon-group mx-2`}
+    ></i>
+  );
+
   // handler functions //
   const changePageNumber = (number) => {
     setCurrentPage(number);
@@ -89,53 +100,23 @@ export const PersonsTable = () => {
             <tr>
               <th scope='col' onClick={() => handleSort("id")}>
                 #ID
-                <i
-                  className={`fas ${
-                    sort.sortBy === "id" && sort.sortOrder === "dsc"
-                      ? "fa-sort-down"
-                      : "fa-sort-up"
-                  }  icon-group mx-2`}
-                ></i>
+                {getIcon("id")}
               </th>
               <th scope='col' onClick={() => handleSort("first_name")}>
                 First
-                <i
-                  className={`fas ${
-                    sort.sortBy === "first_name" && sort.sortOrder === "dsc"
-                      ? "fa-sort-down"
-                      : "fa-sort-up"
-                  }  icon-group mx-2`}
-                ></i>
+                {getIcon("first_name")}
               </th>
               <th scope='col' onClick={() => handleSort("last_name")}>
                 Last
-                <i
-                  className={`fas ${
-                    sort.sortBy === "last_name" && sort.sortOrder === "dsc"
-                      ? "fa-sort-down"
-                      : "fa-sort-up"
-                  }  icon-group mx-2`}
-                ></i>
+                {getIcon("last_name")}
               </th>
               <th scope='col' onClick={() => handleSort("email")}>
                 Email
-                <i
-                  className={`fas ${
-                    sort.sortBy === "email" && sort.sortOrder === "dsc"
-                      ? "fa-sort-down"
-                      : "fa-sort-up"
-                  }  icon-group mx-2`}
-                ></i>
+                {getIcon("email")}
               </th>
               <th scope='col' onClick={() => handleSort("dob")}>
                 DOB
-                <i
-                  className={`fas ${
-                    sort.sortBy === "dob" && sort.sortOrder === "dsc"
-                      ? "fa-sort-down"
-                      : "fa-sort-up"
-                  }  icon-group mx-2`}
-                ></i>
+                {getIcon("dob")}
               </th>
             </tr>
           </thead>
