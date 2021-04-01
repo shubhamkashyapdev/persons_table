@@ -43,7 +43,7 @@ export const Paginate = ({
       {pagesArr.map((page, i) => (
         <a
           key={i}
-          href='!#'
+          href='#'
           className={`btn mx-1 ${
             currentPage === i + 1 ? "btn-primary" : "btn-light"
           }`}
