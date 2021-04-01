@@ -35,6 +35,10 @@ export const PersonsTable = () => {
         a = a.id;
         b = b.id;
         return sort.sortOrder === "asc" ? (a > b ? 1 : -1) : a > b ? -1 : 1;
+      } else if (sort.sortBy === "dob") {
+        a = +a.birthday.split("-")[0];
+        b = +b.birthday.split("-")[0];
+        return sort.sortOrder === "asc" ? (a > b ? 1 : -1) : a > b ? -1 : 1;
       } else {
         a = a[sort.sortBy];
         b = b[sort.sortBy];
