@@ -1,0 +1,25 @@
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 0 2rem;
+}
+ul {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 0.2em;
+}
+
+a:hover,
+a:active {
+  color: #fff;
+  border-bottom: 3px solid slateblue;
+}
